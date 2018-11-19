@@ -40,14 +40,16 @@ $(container) ping deephorse. 
 $(container) roscore
 $(host) export ROS_MASTER_URI=http://0ef6065d7b27:11311/
 ```
-- Run a dummy node and see if you can receive messages on the host PC. You may like to use my dummy node.```
+- Run a dummy node and see if you can receive messages on the host PC. You may like to use my dummy node.
+```
 $(container) cd ~/catkin_ws/src
 $(container) git clone https://github.com/mpkuse/docker_ros_test
 $(container) cd ~/catkin_ws
 $(container) catkin_make
 $(container) rosrun docker_ros_test pub_text.py
 ```
-- Verify the host can receive the messages.```
+- Verify the host can receive the messages.
+```
 $(host) rostopic list
 /chatter
 /rosout
