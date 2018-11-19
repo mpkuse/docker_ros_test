@@ -9,7 +9,7 @@ Contains two sample publishers to check/verify connection between separate ros t
 ## How to use ROS with docker
 If you are a computer vision/robotics researcher or an engineerer checkout my blog post on
 what docker can do for you. [HERE](https://kusemanohar.wordpress.com/2018/10/03/docker-for-computer-vision-researchers/).
-Following is a checklist to get this sample nodes running on ros on docker. 
+Following is a checklist to get this sample nodes running on ros on docker.
 
 - Run the container image. You may use my images which has ros.  [hub.docker/mpkuse](https://hub.docker.com/r/mpkuse/kusevisionkit/).
 ```
@@ -35,20 +35,19 @@ $(container) source devel/setup.bash
 $(host) ping 0ef6065d7b27
 $(container) ping deephorse. 
 ```
-- ```
+- Run roscore.
+```
 $(container) roscore
 $(host) export ROS_MASTER_URI=http://0ef6065d7b27:11311/
 ```
-- Run a dummy node and see if you can receive messages on the host PC. You may like to use my dummy node. https://github.com/mpkuse/docker_ros_test
-```
+- Run a dummy node and see if you can receive messages on the host PC. You may like to use my dummy node.```
 $(container) cd ~/catkin_ws/src
 $(container) git clone https://github.com/mpkuse/docker_ros_test
 $(container) cd ~/catkin_ws
 $(container) catkin_make
 $(container) rosrun docker_ros_test pub_text.py
 ```
-- Verify the host can receive the messages.
-```
+- Verify the host can receive the messages.```
 $(host) rostopic list
 /chatter
 /rosout
