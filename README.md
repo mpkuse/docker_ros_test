@@ -5,6 +5,15 @@ Contains two sample publishers to check/verify connection between separate ros t
 - [scripts/pub_text.py](scripts/pub_text.py) : Publish a std_msgs::String
 - [scripts/pub_marker.py](scripts/pub_marker.py) : Publish a visualization_msgs::Marker
 
+## Basic Run nodes 
+```
+rosrun docker_ros_test pub_text.py
+```
+and 
+```
+rosrun docker_ros_test pub_marker.py
+```
+
 
 ## How to use ROS with docker
 If you are a computer vision/robotics researcher or an engineerer checkout my blog post on
