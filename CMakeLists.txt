@@ -134,6 +134,10 @@ include_directories(
 # add_executable(docker_ros_test_node src/docker_ros_test_node.cpp)
 add_executable( adder_service src_service/adder_service.cpp)
 
+# this is needed to indicate this this executable depends on the messages of the pkg.
+add_dependencies(adder_service docker_ros_test_generate_messages_cpp)
+
+
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(docker_ros_test_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
