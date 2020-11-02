@@ -2,13 +2,15 @@
 # license removed for brevity
 import rospy
 from std_msgs.msg import String
+import os
 
 def talker():
     pub = rospy.Publisher('chatter', String, queue_size=10)
     rospy.init_node('talker', anonymous=True)
     rate = rospy.Rate(10) # 10hz
+    hostname = os.uname()[1]
     while not rospy.is_shutdown():
-        hello_str = "hello world %s" % rospy.get_time()
+        hello_str = "hello world from %s %s" % ( hostname,   rospy.get_time() )
         rospy.loginfo(hello_str)
         pub.publish(hello_str)
         rate.sleep()
